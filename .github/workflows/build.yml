@@ -63,6 +63,9 @@ jobs:
       - name: Build executable with PyInstaller
         run: pyinstaller --onefile --windowed --icon=icon.ico --name=LATCRY --add-data="icon.ico:." main.py
 
+      - name: Make binary executable
+        run: chmod +x dist/LATCRY
+
       - name: Upload executable as artifact
         uses: actions/upload-artifact@v4
         with:

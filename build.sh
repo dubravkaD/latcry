@@ -13,4 +13,7 @@ pip install -r requirements.txt
 
 pyinstaller --onefile --windowed --icon=icon.ico --name=LATCRY --add-data "icon.ico;." main.py
 
-echo "Build complete"
+sudo mv ~/latcry/dist/LATCRY /usr/local/bin/latcry
+sudo chmod +x /usr/local/bin/latcry
+
+echo "Complete setup"

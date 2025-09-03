@@ -1,7 +1,7 @@
 import os
 import sys
 import tkinter as tk
-from tkinter import messagebox
+from tkinter import messagebox, PhotoImage
 
 # Latin to Cyrillic and Cyrillic to Latin mappings for Serbian
 latin_to_cyrillic = {
@@ -70,8 +70,19 @@ def create_gui():
     window = tk.Tk()
     window.title("LATCRY Serbian Latin ↔ Cyrillic Translator")
     # Set window icon
-    icon_path = resource_path("icon.ico")
-    window.iconbitmap(icon_path)
+    if sys.platform.startswith("win"):
+
+        icon_path = resource_path("icon.ico")
+        try:
+            window.iconbitmap(icon_path)
+        except tk.TclError:
+            pass
+    else:
+        icon_path = resource_path("icon.png")
+        try:
+            window.iconphoto(True, PhotoImage(file=icon_path))
+        except tk.TclError:
+            pass
     # Center the window
     window_width = 600
     window_height = 400

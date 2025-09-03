@@ -27,7 +27,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build executable with PyInstaller
-        run:  pyinstaller --onefile --windowed --icon=icon.ico --name=LATCRY --add-data="icon.ico;." main.py
+        run:  pyinstaller --onefile --windowed --icon=icon.ico --name=LATCRY --add-data="icon.ico;." --add-data="icon.png;." main.py
 
       - name: Upload executable as artifact
         uses: actions/upload-artifact@v4
@@ -61,7 +61,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build executable with PyInstaller
-        run: pyinstaller --onefile --windowed --icon=icon.ico --name=LATCRY --add-data="icon.ico:." main.py
+        run: pyinstaller --onefile --windowed --icon=icon.png --name=LATCRY --add-data="icon.ico:." --add-data="icon.png:." main.py
 
       - name: Make binary executable
         run: chmod +x dist/LATCRY
